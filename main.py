@@ -87,7 +87,7 @@ class LifeFourCutsApp:
         title = Label(self.ui_container, text="Summer Party MPI CBS\nFour Cuts", font=("Helvetica", 42, "bold"), fg="#FF5722", bg='white')
         title.pack(pady=(250, 50))
         
-        subtitle = Label(self.ui_container, text="Capture your colorful memories", font=("Helvetica", 20), bg='white')
+        subtitle = Label(self.ui_container, text="Capture your colorful moments", font=("Helvetica", 20), bg='white')
         subtitle.pack(pady=20)
 
         start_btn = Button(self.ui_container, text="START", font=("Helvetica", 28, "bold"), bg="#4CAF50", fg="white", 
