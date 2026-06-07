@@ -430,6 +430,28 @@ class LifeFourCutsApp:
     # ==========================================
     # Final Representation
     # ==========================================
+    def initiate_reset_sequence(self):
+        """Initiates a 10s cooldown with a dynamic countdown UI."""
+        # Prevent repeated clicks by disabling all buttons
+        for widget in self.ui_container.winfo_children():
+            if isinstance(widget, Frame): # Check inner frames if necessary
+                for sub in widget.winfo_children():
+                    if isinstance(sub, Button):
+                        sub.config(state="disabled")
+    
+        # Identify the button (assuming you have a reference to it)
+        # We will use a recursive timer to update the text
+        self._run_countdown(10)
+
+    def _run_countdown(self, remaining):
+        if remaining > 0:
+            # Update the button text to show the countdown
+            self.reset_btn.config(text=f"Returning in {remaining}s")
+            # Recursively call after 1 second
+            self.root.after(1000, lambda: self._run_countdown(remaining - 1))
+        else:
+            # Once finished, transition to start
+            self.show_start_screen()
 
     def show_final_screen(self, img_path, qr_path, is_success=True):
         self.state = "RESULT"
@@ -471,16 +493,18 @@ class LifeFourCutsApp:
             msg_color = "#E53935"
         else:
             error_icon = Label(right_frame, text="⚠️", font=("Helvetica", 72), bg='white', fg="#FF9800")
-            error_icon.pack(side="top", pady=(20, 0))
+            error_icon.pack(side="top", pady=(5, 0))
             
-            msg_text = f"Cloud Allocation Failed.\nNo QR code generated.\n\nPlease contact the organizer, CNG group."
+            msg_text = f"Wifi Connection Failed.\nNo QR code generated.\n\nPlease try again 🙏"
             msg_color = "#757575"
 
         msg_lbl = Label(right_frame, text=msg_text, font=("Helvetica", 18, "bold"), fg=msg_color, bg='white', justify="center")
         msg_lbl.pack(side="top", pady=40)
 
-        reset_btn = Button(right_frame, text="Return to Start", font=("Helvetica", 20, "bold"), command=self.show_start_screen, width=20, height=2, cursor="hand2")
-        reset_btn.pack(side="bottom", pady=50)
+        # Change this line in your show_final_screen method:
+        self.reset_btn = Button(right_frame, text="Return to Start", font=("Helvetica", 20, "bold"), 
+                        command=self.initiate_reset_sequence, width=20, height=2, cursor="hand2")
+        self.reset_btn.pack(side="bottom", pady=50)
 
     def on_close(self):
         self.is_running = False
