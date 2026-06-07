@@ -18,7 +18,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | more"
 1. Visit the [Google Cloud Console](https://cloud.google.com/cloud-console) and create a new project.
 2. Search for "Google Drive API" and click **Enable**.
 3. In the **Credentials** tab, generate an **OAuth Client ID**.
-4. Download the generated JSON file and save it in the `summer-party-four-cuts` folder, renaming it to `credentials.json`.
+4. Download the generated JSON file and save it in the `four-cuts` folder, renaming it to `credentials.json`.
 
 ---
 
