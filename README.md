@@ -25,6 +25,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | more"
 ## Deployment and Execution Protocol
 
 ### 0. Clone the github
+Download the repo
 ```bash
 git clone https://github.com/jihoonkim2100/four_cuts.git
 ```
