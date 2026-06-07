@@ -84,7 +84,7 @@ class LifeFourCutsApp:
         self.state = "IDLE"
         self.clear_container()
 
-        title = Label(self.ui_container, text="Summer Party MPI CBS\nFour Cuts", font=("Helvetica", 42, "bold"), fg="#FF5722", bg='white')
+        title = Label(self.ui_container, text="Summer Party MPI CBS\nFour Cuts", font=("Helvetica", 60, "bold"), fg="#FF5722", bg='white')
         title.pack(pady=(250, 50))
         
         subtitle = Label(self.ui_container, text="Capture your colorful moments", font=("Helvetica", 20), bg='white')
