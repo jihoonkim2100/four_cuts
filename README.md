@@ -2,7 +2,7 @@
 
 Four cuts for Summer Party MPI-CBS 2026
 
-![overview](asset\overview.png)
+![overview](asset/overview.png)
 
 ## Installation
 
