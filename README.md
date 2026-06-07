@@ -26,8 +26,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | more"
 
 ### 0. Clone the github
 ```bash
-git clone TBA
-cd TBA
+git clone https://github.com/jihoonkim2100/four_cuts.git
 ```
 
 ### 1. Google API Credential Placement
